@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Laser Whale</title>
+    <meta charset="UTF-8" />
+
+    <style>
+      #gameScreen {
+        border: 1px solid black;
+      }
+      img {
+        display: none;
+      }
+    </style>
+  </head>
+
+  <body>
+    <img id="img_ball" src="assets/images/ball.png">
+    <img id="img_ship1" src="assets/images/ship1.png">
+
+    <canvas id="gameScreen" width="800" height="600"></canvas>
+
+    <script src="/src/Paddle.js"></script>
+    <script src="/src/Ball.js"></script>
+    <script src="/src/Ship.js"></script>
+    <script src="/src/levels.mjs" type="module"></script>
+    <script src="/src/Game.js"></script>
+    <script src="/src/InputHandler.js"></script>
+    <script src="/src/index.js"></script>
+  </body>
+</html>

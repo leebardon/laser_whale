@@ -20,6 +20,12 @@
 
     <canvas id="gameScreen" width="800" height="600"></canvas>
 
+    <form style="display: none;">
+      <input type="text" name="player_name" placeholder="Your name" />
+      <p>Your score: <span id="score-value">50</span></p>
+      <input type="submit" value="Submit score">
+    </form>
+
     <script src="./src/Paddle.js"></script>
     <script src="./src/Ball.js"></script>
     <script src="./src/Ship.js"></script>
@@ -27,6 +33,8 @@
     <script src="./src/levelUtils.js"></script>
     <script src="./src/InputHandler.js"></script>
     <script src="./src/Game.js"></script>
+    <script src="./src/API.js"></script>
     <script src="./src/index.js"></script>
+    <script src="./src/scores.js"></script>
   </body>
 </html>

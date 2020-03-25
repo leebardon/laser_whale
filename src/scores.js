@@ -1,4 +1,4 @@
-getHighscores().then(highscores => displayScores(highscores))
+getHighscores().then(highscores => displayScores(highscores));
 
 const displayScores = (scores) => {
     scores.forEach((score) => {
@@ -28,9 +28,10 @@ const showScoreForm = (score) => {
 }
 
 const submitScore = (event) => {
+    event.preventDefault();
     const name = document.getElementById("player_name");
     console.log(name.value);
-    event.preventDefault()
+    sendHighscore(score, name.value).then(resp => console.log(resp));
 }
 
 document.addEventListener("GAME_OVER", handleGameOver);

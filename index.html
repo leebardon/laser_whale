@@ -11,6 +11,12 @@
       img {
         display: none;
       }
+      #scoreForm {
+        display: none;
+      }
+      #scoreForm.capture {
+        display: block;
+      }
     </style>
   </head>
 
@@ -20,9 +26,9 @@
 
     <canvas id="gameScreen" width="800" height="600"></canvas>
 
-    <form style="display: none;">
-      <input type="text" name="player_name" placeholder="Your name" />
-      <p>Your score: <span id="score-value">50</span></p>
+    <form id="scoreForm">
+      <input type="text" id="player_name" placeholder="Your name" />
+      <p>Your score: <span id="score-value"></span></p>
       <input type="submit" value="Submit score">
     </form>
 

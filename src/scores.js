@@ -1,9 +1,14 @@
-getHighscores().then(highscores => displayScores(highscores));
+function loadHighscores() {
+   getHighscores().then(highscores => displayScores(highscores));
+}
+
+loadHighscores();
 
 const displayScores = (scores) => {
+    console.log(scores)
     scores.forEach((score) => {
         const scoreLi = document.createElement("li");
-        scoreLi.innerText = score.player, score.value;
+        scoreLi.innerText = "Player: " + score.player + " , " + "Score: " + score.score;
         document.body.append(scoreLi);
     });
 }
@@ -24,14 +29,16 @@ const showScoreForm = (score) => {
     value.innerText = score;
 
 
-    form.addEventListener("submit", submitScore);
+    form.addEventListener("submit", (event) => {
+   submitScore(score, event);
+    });
 }
 
-const submitScore = (event) => {
+const submitScore = (score, event) => {
     event.preventDefault();
     const name = document.getElementById("player_name");
     console.log(name.value);
-    sendHighscore(score, name.value).then(resp => console.log(resp));
+    sendHighscore(score, name.value).then(() => loadHighscores());
 }
 
 document.addEventListener("GAME_OVER", handleGameOver);

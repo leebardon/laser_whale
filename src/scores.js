@@ -3,7 +3,7 @@ getHighscores().then(highscores => displayScores(highscores))
 const displayScores = (scores) => {
     scores.forEach((score) => {
         const scoreLi = document.createElement("li");
-        scoreLi.innerText = score.player;
+        scoreLi.innerText = score.player, score.value;
         document.body.append(scoreLi);
     });
 }
@@ -23,13 +23,15 @@ const showScoreForm = (score) => {
     const value = document.getElementById("score-value");
     value.innerText = score;
 
-    //form.addEventListener("submit", submitScore);
+
+    form.addEventListener("submit", submitScore);
 }
 
-// const submitScore = () => {
-//     const name = document.getElementById("player_name");
-//     console.log(name.value);
-// }
+const submitScore = (event) => {
+    const name = document.getElementById("player_name");
+    console.log(name.value);
+    event.preventDefault()
+}
 
 document.addEventListener("GAME_OVER", handleGameOver);
 

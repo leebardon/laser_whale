@@ -17,9 +17,10 @@ class Game {
         this.ball = new Ball(this);
         this.paddle = new Paddle(this);
         this.score = 0;
+        this.playerName = "";
+        this.lives = 3;
         this.gameObjects = [];
         this.ships = [];
-        this.lives = 3;
     
         this.levels = [level1, level2];
         this.currentLevel = 0;
@@ -94,13 +95,13 @@ class Game {
             context.fillStyle = "white";
             context.textAlign = "center";
             context.fillText("Press SPACE To Start", this.gameWidth / 2, this.gameHeight / 2);
-
             context.font = "20px Impact";
             context.fillStyle = "white";
             context.textAlign = "center";
             context.fillText("Controls:", this.gameWidth / 2, this.gameHeight / 2 - 250 );
             context.fillText("Left and Right Arrow to Move", this.gameWidth / 2, this.gameHeight / 2 - 200);
             context.fillText("'P' to Pause Game.", this.gameWidth / 2, this.gameHeight / 2 - 170);
+            
         };
 
         // gameover display
@@ -126,19 +127,21 @@ class Game {
             context.fillText("3. ", this.gameWidth / 2 - 80, this.gameHeight / 2 + 50 )
             context.fillText("4. ", this.gameWidth / 2 - 80, this.gameHeight / 2 + 75 )
             context.fillText("5. ", this.gameWidth / 2 - 80, this.gameHeight / 2 + 100 )
-           
-            // document.addEventListener("keydown", (e) => {
-            //     debugger
-            //     if(e.keycode == 13) {
-            //             this.gamestate = GAME.NEWGAME;
-            //             this.start();
+
+            // create input for playerName? 
+            // Could use: 
+            // var userInput = prompt(' ENTER YOUR NAME: '); 
+            // create fetch request to send playerName and this.score to Rails API
+            
+            // return to main menu 
+            // document.addEventListener("keyDown", (e) => {
+            //     if(e.keyDown === 13) {
+            //         this.gamestate = GAMESTATE.NEWGAME;
+            //         this.start();
             //     }
-            // })
+            // });    
 
         };
-
-
- 
     }
 
     togglePause() {

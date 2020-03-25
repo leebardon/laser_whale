@@ -11,7 +11,7 @@ class Ball {
 
     reset() {
         this.position = {x: 100, y: 250};
-        this.speed = {x: 9, y: -9};
+        this.speed = {x: 11, y: -11};
     }
 
     draw(context) {

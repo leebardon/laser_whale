@@ -4,7 +4,7 @@ const GAMESTATE = {
     MENU: 2,
     GAMEOVER: 3,
     NEXTLEVEL: 4,
-    NEWGAME: 5
+    // NEWGAME: 5
 }
 
 
@@ -109,14 +109,23 @@ class Game {
             context.fillStyle = "rgba(47, 74, 63, 1)";
             context.fill();
 
-            context.font = "40px Impact";
+            context.font = "50px Impact";
             context.fillStyle = "white";
             context.textAlign = "center";
-            context.fillText("{   FAIL WHALE   }", this.gameWidth / 2, this.gameHeight / 2 - 200);
-            context.fillText("SCORE:  " + this.score, this.gameWidth / 2, this.gameHeight / 2 - 150);
+            context.fillText("{   GAME OVER   }", this.gameWidth / 2, this.gameHeight / 2 - 200);
             context.font = "30px Impact";
-            context.fillText("Refresh Page to Start New Game!", this.gameWidth / 2, this.gameHeight / 2 + 200 )
-            
+            context.fillText("Score:  " + this.score, this.gameWidth / 2, this.gameHeight / 2 - 125);
+            context.font = "30px Impact";
+            context.fillText("{   Refresh Page to Start New Game!   }", this.gameWidth / 2, this.gameHeight / 2 + 200 )
+            context.font = "20px Impact";
+            context.fillText("Enter Name:  ", this.gameWidth / 2, this.gameHeight / 2 - 75 )
+            context.font = "20px Impact";
+            context.fillText("Leaderboard: ", this.gameWidth / 2, this.gameHeight / 2 - 25 )
+            context.fillText("1. ", this.gameWidth / 2 - 80, this.gameHeight / 2 )
+            context.fillText("2. ", this.gameWidth / 2 - 80, this.gameHeight / 2 + 25 )
+            context.fillText("3. ", this.gameWidth / 2 - 80, this.gameHeight / 2 + 50 )
+            context.fillText("4. ", this.gameWidth / 2 - 80, this.gameHeight / 2 + 75 )
+            context.fillText("5. ", this.gameWidth / 2 - 80, this.gameHeight / 2 + 100 )
            
             // document.addEventListener("keydown", (e) => {
             //     debugger

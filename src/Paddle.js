@@ -5,7 +5,7 @@ class Paddle {
     this.width = 150;
     this.height = 20;
 
-    this.maxSpeed = 8;
+    this.maxSpeed = 10;
     this.speed = 0;
 
     this.position = {
@@ -27,7 +27,7 @@ class Paddle {
   }
 
   draw(context) {
-    context.fillStyle = "#0ff";
+    context.fillStyle = "rgba(36, 157, 238, 1)";
     context.fillRect(this.position.x, this.position.y, this.width, this.height);
   }
 

@@ -8,13 +8,19 @@ class Ship {
         this.game = game;
 
         this.position = position;
-        this.width = 66;
+        this.width = 75;
         this.height = 30;
+
+        this.readyForDeletion = false;
 
     }
 
     update() {
-
+        if(detectCollision(this.game.ball, this)) {
+            this.game.ball.speed.y = -this.game.ball.speed.y;
+            this.game.score += 30
+            this.readyForDeletion = true;
+        }
     }
 
     draw(context) {

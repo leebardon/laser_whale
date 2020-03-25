@@ -1,15 +1,17 @@
 class Ball {
+    
     constructor(game) {
         this.image = document.getElementById("img_ball");
-
         this.gameWidth = game.gameWidth;
         this.gameHeight = game.gameHeight;
-
         this.game = game;
-
-        this.position = {x: 10, y: 10};
-        this.speed = {x: 5, y: 5};
         this.size = 18;
+        this.reset();
+    }
+
+    reset() {
+        this.position = {x: 100, y: 250};
+        this.speed = {x: 9, y: -9};
     }
 
     draw(context) {
@@ -31,27 +33,21 @@ class Ball {
             this.speed.x = -this.speed.x;
         }
 
-        // does ball hit top or bottom?
-        if(this.position.y + this.size > this.gameHeight || this.position.y < 0){
+        // does ball hit top?
+        if(this.position.y < 0){
             this.speed.y = -this.speed.y;
         }
 
-        // does ball collide with paddle?
-        let bottomOfBall = this.position.y + this.size; 
-        let topOfPaddle = this.game.paddle.position.y;
-        let leftOfPaddle = this.game.paddle.position.x;
-        let rightOfPaddle = this.game.paddle.position.x + this.game.paddle.width;
+        // does ball hit bottom? 
+        if(this.position.y + this.size > this.gameHeight) {
+            this.game.lives--;
+            this.reset();
+        }
 
-        if(
-            bottomOfBall >= topOfPaddle &&
-            this.position.x >= leftOfPaddle &&
-            this.position.x + this.size <= rightOfPaddle
-        ) {
+        if (detectCollision(this, this.game.paddle)) {
             this.speed.y = -this.speed.y;
             this.position.y = this.game.paddle.position.y - this.size;
         }
-
-        // does ball hit ships?
 
     }
 

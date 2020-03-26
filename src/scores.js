@@ -32,7 +32,10 @@ const showScoreForm = (score) => {
 const submitScore = (score, event) => {
     event.preventDefault();
     const name = document.getElementById("player_name");
-    sendHighscore(name.value, score).then(() => loadHighscores());
+    sendHighscore(name.value, score).then((score) => {
+        // display message with position
+        loadHighscores()
+    });
 }
 
 document.addEventListener("GAME_OVER", handleGameOver);

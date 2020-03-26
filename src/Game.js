@@ -44,7 +44,13 @@ class Game {
 
     update(deltaTime) {  
 
-        if(this.lives === 0) this.gamestate = GAMESTATE.GAMEOVER;
+        if (this.lives === 0 && this.gamestate !== GAMESTATE.GAMEOVER) {
+            this.gamestate = GAMESTATE.GAMEOVER;
+            const gameOver = new CustomEvent("GAME_OVER", {
+                detail: { score: this.score }
+            });
+            document.dispatchEvent(gameOver);
+         }
 
         // don't update if pause hit or if on menu screen, or if gameover 
         if(

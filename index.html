@@ -11,6 +11,12 @@
       img {
         display: none;
       }
+      #scoreForm {
+        display: none;
+      }
+      #scoreForm.capture {
+        display: block;
+      }
     </style>
   </head>
 
@@ -21,6 +27,14 @@
     <canvas id="gameScreen" width="800" height="600"></canvas>
     <p><input type="text" id="playerName"></p>
 
+    <form id="scoreForm">
+      <input type="text" id="player_name" placeholder="Your name" />
+      <p>Your score: <span id="score-value"></span></p>
+      <input type="submit" value="Submit score">
+    </form>
+
+    <ol id="highscores"></ol>
+
     <script src="./src/Paddle.js"></script>
     <script src="./src/Ball.js"></script>
     <script src="./src/Ship.js"></script>
@@ -28,6 +42,8 @@
     <script src="./src/levelUtils.js"></script>
     <script src="./src/InputHandler.js"></script>
     <script src="./src/Game.js"></script>
+    <script src="./src/API.js"></script>
     <script src="./src/index.js"></script>
+    <script src="./src/scores.js"></script>
   </body>
 </html>
